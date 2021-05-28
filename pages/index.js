@@ -2,18 +2,18 @@ import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 import withData from '../config';
 
-import AuthorList from './AuthorList';
+import UsersList from './UsersList';
 
 const query = gql`
 	query {
-	  author {
+	  users {
 	    id
 	    name
 	  }
 	}
 `
 
-const Index = ({ authors } ) => {
+const Index = ({ users } ) => {
   return (
     <Query    // <- Wrapping the main component with Query component from react-apollo
       query={ query }
@@ -26,7 +26,7 @@ const Index = ({ authors } ) => {
         return (
           <div>
             <h1>My Authors </h1>
-            <AuthorList authors={data ? data.author: []} />
+            <UsersList users={data ? data.users: []} />
           </div>
         );
       }}
