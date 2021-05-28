@@ -14,25 +14,24 @@ Boilerplate to get started with Nextjs, Hasura GraphQL engine as CMS and postgre
 
 - Get the Hasura app URL (say `nextjs-graphql.hasura.app`)
 
-- Create `author` table:
+- Create `users` table:
   
   Open Hasura console: visit https://nextjs-graphql.hasura.app on a browser  
   Navigate to `Data` section in the top nav bar and create a table as follows:
 
-  ![Create author table](../gatsby-postgres-graphql/assets/add_table.jpg)
+  ![Create users table](../gatsby-postgres-graphql/assets/add_table.jpg)
 
-- Insert sample data into `author` table:
+- Insert sample data into `users` table:
 
-  ![Insert data into author table](../gatsby-postgres-graphql/assets/insert_data.jpg)
+  ![Insert data into users table](../gatsby-postgres-graphql/assets/insert_data.jpg)
 
   Verify if the row is inserted successfully
 
-  ![Insert data into author table](../gatsby-postgres-graphql/assets/browse_rows.jpg)
+  ![Insert data into users table](../gatsby-postgres-graphql/assets/browse_rows.jpg)
 
 - Clone this repo:
   ```bash
-  git clone https://github.com/hasura/graphql-engine
-  cd graphql-engine/community/sample-apps/nextjs-postgres-graphql
+  git clone https://github.com/luisabellan/nextjs-postgres-graphql
   ```
 
 - Install npm modules:
@@ -62,7 +61,7 @@ Boilerplate to get started with Nextjs, Hasura GraphQL engine as CMS and postgre
 
       const query = gql`
       	query {
-      	  author {
+      	  users {
       	    id
       	    name
       	  }
@@ -83,8 +82,8 @@ Boilerplate to get started with Nextjs, Hasura GraphQL engine as CMS and postgre
             }
             return (
               <div>
-                <h1>My Authors </h1>
-                <AuthorList authors={data ? data.author: []} />
+                <h1>Users </h1>
+                <UsersList users={data ? data.name: []} />
               </div>
             );
         }}
